@@ -11,6 +11,7 @@ namespace ReactRummy.Models
         public int ID { get; set; }
         //Foreign Key from Game
         public int GameID { get; set; }
+        //HandID and LaydownID might not be used
         public int HandID { get; set; }
         public int LaydownID { get; set; }
         public string User { get; set; } //Reference to Identity Database

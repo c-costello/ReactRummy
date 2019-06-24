@@ -10,7 +10,7 @@ namespace ReactRummy.Models
         //Composite Key Suit and Value
         public SuitType Suit { get; set; }
         public ValType Value { get; set; }
-        public Location Location { get; set; }
+        public int LocationID { get; set; }
         //Constructor
         public Card (SuitType suit, ValType val)
         {

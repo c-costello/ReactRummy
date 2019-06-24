@@ -10,6 +10,7 @@ namespace ReactRummy.Models
         //Properties
         public int ID { get; set; }
         public StatusType Status { get; set; }
+        public int Winner { get; set; } //playerID of the winning player 
         
         public Game()
         {
