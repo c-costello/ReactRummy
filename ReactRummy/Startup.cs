@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ReactRummy.Data;
+using ReactRummy.Models;
 
 namespace ReactRummy
 {
@@ -20,7 +24,23 @@ namespace ReactRummy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddIdentity<ApplicationUser, IdentityRole>()
+            //                .AddEntityFrameworkStores<ApplicationDbContext>()
+            //                .AddDefaultTokenProviders();
+
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //options.UseSqlServer(Configuration["ConnectionStrings:IdentityDefaultConnection"]));
+
+            //services.AddDbContext<RecipeDbContext>(options =>
+            //options.UseSqlServer(Configuration["ConnectionStrings:RecipeLocalConnection"]));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:UserLocalConnection"]));
+            services.AddDbContext<GameDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:GameLocalConnection"]));
+
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
