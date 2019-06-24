@@ -13,5 +13,11 @@ namespace ReactRummy.Data
         {
 
         }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Card>().HasKey(ce => new { ce.Suit, ce.Value });
+        }
     }
 }
