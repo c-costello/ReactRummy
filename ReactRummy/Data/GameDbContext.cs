@@ -20,9 +20,9 @@ namespace ReactRummy.Data
             modelBuilder.Entity<Card>().HasKey(ce => new { ce.Suit, ce.Value });
         }
 
-        public DbSet<Card> Cards;
-        public DbSet<Game> Games;
-        public DbSet<Location> Locations;
-        public DbSet<Player> Players;
+        public DbSet<Card> Cards { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Player> Players { get; set; }
     }
 }
