@@ -7,19 +7,18 @@ namespace ReactRummy.Models
 {
     public class Card
     {
-        //Composite Key
+        //Composite Key Suit and Value
         public SuitType Suit { get; set; }
         public ValType Value { get; set; }
-        public LocationType Location { get; set; }
+        public Location Location { get; set; }
         //Constructor
-        public Card (SuitType suit, ValType val, LocationType location)
+        public Card (SuitType suit, ValType val)
         {
             Suit = suit;
             Value = val;
-            Location = location;
         }
+        //Enums
         public enum SuitType { Spades, Clubs, Hearts, Diamonds}
         public enum ValType { Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King}
-        public enum LocationType { Start, Draw, Discard, PlayerOneHand, PlayerOneLayDown, PlayerTwoHand, PlayerTwoLayDown}
     }
 }

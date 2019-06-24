@@ -13,7 +13,7 @@ namespace ReactRummy.Models
         public int GameID { get; set; }
         public string User { get; set; } //Reference to Identity Database
         public int Score { get; set; }
-
+        
 
     }
 }
