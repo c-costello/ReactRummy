@@ -11,9 +11,13 @@ namespace ReactRummy.Models
         public int ID { get; set; }
         //Foreign Key from Game
         public int GameID { get; set; }
+        public int HandID { get; set; }
+        public int LaydownID { get; set; }
         public string User { get; set; } //Reference to Identity Database
         public int Score { get; set; }
-        
+        //Navigational Properties 
+        public Location Hand { get; set; }
+        public Location Laydown { get; set; }
 
     }
 }
