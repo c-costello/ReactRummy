@@ -4,7 +4,7 @@ using ReactRummy.Models;
 
 namespace ReactRummyTests
 {
-    public class UnitTest1
+    public class GameGetSet
     {
         public Game game = new Game()
         {
