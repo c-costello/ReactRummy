@@ -11,6 +11,6 @@ namespace ReactRummy.Models.Interfaces
         Task<Game> GetGame(int id);
         Task<Game> CreateGame(Game game);
         Task<Game> UpdateGame(Game game);
-        Task<Game> DeleteGame(int id);
+        Task DeleteGame(int id);
     }
 }
