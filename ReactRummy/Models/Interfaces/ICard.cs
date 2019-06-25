@@ -7,7 +7,7 @@ namespace ReactRummy.Models.Interfaces
 {
     public interface ICard
     {
-        Task<Card> GetCard(Card.SuitType suit, Card.ValType val);
+        Task<Card> GetCard(Card.SuitType suit, Card.ValType val, int gameID);
         Task<IEnumerable<Card>> GetCards();
         Task<IEnumerable<Card>> GetCardsByLocation(int locationID);
         Task CreateCard(Card card);

@@ -32,9 +32,9 @@ namespace ReactRummy.Models.Services
 
         }
 
-        public async Task<Card> GetCard(Card.SuitType suit, Card.ValType val)
+        public async Task<Card> GetCard(Card.SuitType suit, Card.ValType val, int gameID)
         {
-            Card card = await _Context.Cards.FirstOrDefaultAsync(c => c.Suit == suit && c.Value == val);
+            Card card = await _Context.Cards.FirstOrDefaultAsync(c => c.Suit == suit && c.Value == val && c.GameID == gameID);
             return card;
         }
 
