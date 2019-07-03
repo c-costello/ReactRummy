@@ -71,5 +71,25 @@ namespace ReactRummyTests.CRUD
 
             }
         }
+        [Fact]
+        public async void CanGetCard()
+        {
+            DbContextOptions<GameDbContext> options = new DbContextOptionsBuilder<GameDbContext>().UseInMemoryDatabase("test").Options;
+            using (GameDbContext context = new GameDbContext(options))
+            {
+                CardService cardService = new CardService(context);
+                Card card = new Card()
+                {
+                    GameID = 3,
+                    Suit = Card.SuitType.Diamonds,
+                    Value = Card.ValType.Seven,
+                    LocationID = 1,
+                };
+                await cardService.CreateCard(card);
+                var expected = card;
+                var actual = await cardService.GetCard(card.Suit, card.Value, card.GameID);
+                Assert.Equal(expected, actual);
+            }
+        }
     }
 }
